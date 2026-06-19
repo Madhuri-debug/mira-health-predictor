@@ -3,7 +3,7 @@ import sqlite3
 import re
 from datetime import date
 
-# 1. డేటాబేస్ కనెక్షన్
+
 conn = sqlite3.connect('healthcare.db', check_same_thread=False)
 c = conn.cursor()
 c.execute('''
@@ -15,7 +15,7 @@ c.execute('''
 ''')
 conn.commit()
 
-# 2. AI/ML ప్రెడిక్షన్ లాజిక్
+
 def predict_health_risk(glucose, hb, choles):
     risks = []
     if glucose > 140: risks.append("High Blood Sugar (Risk of Diabetes)")
@@ -27,7 +27,7 @@ def predict_health_risk(glucose, hb, choles):
         return "All parameters look stable. Maintain a healthy lifestyle."
     return "Potential Risks: " + ", ".join(risks)
 
-# 3. Streamlit UI
+#  Streamlit UI
 st.set_page_config(page_title="MIRA Health Predictor", layout="wide")
 st.title("🏥 MIRA - Health Prediction Application")
 
